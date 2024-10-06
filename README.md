@@ -19,5 +19,6 @@ The **Income Expense Calculator** is a simple, intuitive web application that al
 - **CSS** (using **TailwindCSS** for styling)
 - **JavaScript** (for dynamic updates and CRUD operations)
 
+
  > [!NOTE]
 > Kindly use VPN to view this project with styles.
