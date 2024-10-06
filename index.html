@@ -1,79 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Income Expense Calculator</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-  </style>
-</head>
-<body class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 p-3 sm:p-6">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Income Expense Calculator</title>
+    <link
+      rel="shortcut icon"
+      href="data:image/jpeg;base64,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"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 p-3 sm:p-6"
+  >
+    <div class="max-w-lg mx-auto bg-white shadow-md rounded p-4 sm:p-6">
+      <!-- Header -->
+      <header class="text-center mb-6">
+        <h1 class="text-xl sm:text-3xl font-bold text-gray-700">
+          Income Expense Calculator
+        </h1>
+      </header>
 
-  <div class="max-w-lg mx-auto bg-white shadow-md rounded p-4 sm:p-6">
-    <!-- Header -->
-    <header class="text-center mb-6">
-      <h1 class=" text-xl sm:text-3xl font-bold text-gray-700">Income Expense Calculator</h1>
-    </header>
+      <!-- Summary Section -->
+      <section class="mb-6 text-center">
+        <h2
+          id="balanceE1"
+          class="p-2 sm:text-2xl font-bold text-blue-100 bg-gradient-to-r from-blue-400 to-blue-600 sm:p-4 rounded"
+        >
+          Total Balance: ₹0.00
+        </h2>
+        <div class="flex justify-between mt-1">
+          <p
+            id="incomeE1"
+            class="text-green-100 font-semibold sm:text-xl bg-gradient-to-r from-green-400 to-green-600 p-1 rounded-sm"
+          >
+            Income: ₹0.00
+          </p>
+          <p
+            id="expenseE1"
+            class="text-red-100 font-semibold sm:text-xl bg-gradient-to-r from-red-400 to-red-600 p-1 rounded-sm"
+          >
+            Expenses: ₹0.00
+          </p>
+        </div>
+      </section>
 
-    <!-- Summary Section -->
-    <section class="mb-6 text-center">
-      <h2 id="balanceE1" class=" p-2 sm:text-2xl font-bold text-blue-100 bg-gradient-to-r from-blue-400 to-blue-600 sm:p-4 rounded">Total Balance: ₹0.00</h2>
-      <div class="flex justify-between mt-1">
-        <p id="incomeE1" class="text-green-100 font-semibold  sm:text-xl bg-gradient-to-r from-green-400 to-green-600 p-1 rounded-sm">Income: ₹0.00</p>
-        <p id="expenseE1" class="text-red-100 font-semibold sm:text-xl bg-gradient-to-r from-red-400 to-red-600 p-1 rounded-sm">Expenses: ₹0.00</p>
-      </div>
-    </section>
+      <!-- Form -->
+      <section class="mb-6">
+        <input
+          type="text"
+          id="descriptionE1"
+          placeholder="Description"
+          class="w-full p-2 mb-2 border border-gray-300 rounded"
+        />
+        <input
+          type="number"
+          id="amountE1"
+          placeholder="Amount"
+          class="w-full p-2 mb-2 border border-gray-300 rounded"
+        />
+        <select
+          id="typeE1"
+          class="w-full p-2 mb-4 border border-gray-300 rounded"
+        >
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+        <button
+          id="addTransactionBtnE1"
+          class="w-full p-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded font-semibold hover:from-pink-500 hover:to-purple-500 hover:text-black"
+        >
+          Add Transaction
+        </button>
+      </section>
 
-    <!-- Form -->
-    <section class="mb-6">
-      <input type="text" id="descriptionE1" placeholder="Description" class="w-full p-2 mb-2 border border-gray-300 rounded">
-      <input type="number" id="amountE1" placeholder="Amount" class="w-full p-2 mb-2 border border-gray-300 rounded">
-      <select id="typeE1" class="w-full p-2 mb-4 border border-gray-300 rounded">
-        <option value="income">Income</option>
-        <option value="expense">Expense</option>
-      </select>
-      <button id="addTransactionBtnE1" class="w-full p-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded font-semibold hover:from-pink-500 hover:to-purple-500 hover:text-black">Add Transaction</button>
-    </section>
+      <!-- Filters -->
+      <section class="mb-6 sm:text-center">
+        <label class="ml-1 sm:ml-4 break-words">
+          <input type="radio" name="filter" value="all" checked /> All
+        </label>
+        <label class="ml-1 sm:ml-4">
+          <input type="radio" name="filter" value="income" /> Income
+        </label>
+        <label class="ml-1 sm:ml-4">
+          <input type="radio" name="filter" value="expense" /> Expenses
+        </label>
+      </section>
 
-    <!-- Filters -->
-    <section class="mb-6 sm:text-center">
-      <label class="ml-1 sm:ml-4 break-words">
-        <input type="radio" name="filter" value="all" checked> All
-      </label>
-      <label class="ml-1 sm:ml-4">
-        <input type="radio" name="filter" value="income"> Income
-      </label>
-      <label class="ml-1 sm:ml-4">
-        <input type="radio" name="filter" value="expense"> Expenses
-      </label>
-    </section>
-
-    <!-- Transaction Table -->
-    <div class="mt-4">
-      <h3 class="font-bold text-lg mb-4 text-gray-800">Transactions</h3>
-      <table class="min-w-full border border-gray-200 mx-auto bg-white rounded-lg shadow-md">
+      <!-- Transaction Table -->
+      <div class="mt-4">
+        <h3 class="font-bold text-lg mb-4 text-gray-800">Transactions</h3>
+        <table
+          class="min-w-full border border-gray-200 mx-auto bg-white rounded-lg shadow-md"
+        >
           <thead>
-              <tr>
-                  <th class="px-1 sm:px-4 text-sm sm:text-base py-2 border border-gray-200  bg-gradient-to-r from-indigo-500 to-purple-500 text-white">Description</th>
-                  <th class="px-1 sm:px-4 text-sm border border-gray-200  bg-gradient-to-r from-indigo-500 to-purple-500 text-white">Amount</th>
-                  <th class="px-1 sm:px-4 text-sm border border-gray-200  bg-gradient-to-r from-indigo-500 to-purple-500 text-white">Actions</th>
-              </tr>
+            <tr>
+              <th
+                class="px-1 sm:px-4 text-sm sm:text-base py-2 border border-gray-200 bg-gradient-to-r from-indigo-500 to-purple-500 text-white"
+              >
+                Description
+              </th>
+              <th
+                class="px-1 sm:px-4 text-sm border border-gray-200 bg-gradient-to-r from-indigo-500 to-purple-500 text-white"
+              >
+                Amount
+              </th>
+              <th
+                class="px-1 sm:px-4 text-sm border border-gray-200 bg-gradient-to-r from-indigo-500 to-purple-500 text-white"
+              >
+                Actions
+              </th>
+            </tr>
           </thead>
           <tbody id="transactionListE1" class="bg-white">
-              <!-- Transactions will be inserted here -->
+            <!-- Transactions will be inserted here -->
           </tbody>
-      </table>
+        </table>
+      </div>
     </div>
 
-  </div>
-
-  <script src="app.js"></script>
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>
