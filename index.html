@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income Expense Calculator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  </style>
+</head>
+<body class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 p-3 sm:p-6">
+
+  <div class="max-w-lg mx-auto bg-white shadow-md rounded p-4 sm:p-6">
+    <!-- Header -->
+    <header class="text-center mb-6">
+      <h1 class=" text-xl sm:text-3xl font-bold text-gray-700">Income Expense Calculator</h1>
+    </header>
+
+    <!-- Summary Section -->
+    <section class="mb-6 text-center">
+      <h2 id="balanceE1" class=" p-2 sm:text-2xl font-bold text-blue-100 bg-gradient-to-r from-blue-400 to-blue-600 sm:p-4 rounded">Total Balance: ₹0.00</h2>
+      <div class="flex justify-between mt-1">
+        <p id="incomeE1" class="text-green-100 font-semibold  sm:text-xl bg-gradient-to-r from-green-400 to-green-600 p-1 rounded-sm">Income: ₹0.00</p>
+        <p id="expenseE1" class="text-red-100 font-semibold sm:text-xl bg-gradient-to-r from-red-400 to-red-600 p-1 rounded-sm">Expenses: ₹0.00</p>
+      </div>
+    </section>
+
+    <!-- Form -->
+    <section class="mb-6">
+      <input type="text" id="descriptionE1" placeholder="Description" class="w-full p-2 mb-2 border border-gray-300 rounded">
+      <input type="number" id="amountE1" placeholder="Amount" class="w-full p-2 mb-2 border border-gray-300 rounded">
+      <select id="typeE1" class="w-full p-2 mb-4 border border-gray-300 rounded">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+      <button id="addTransactionBtnE1" class="w-full p-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded font-semibold hover:from-pink-500 hover:to-purple-500 hover:text-black">Add Transaction</button>
+    </section>
+
+    <!-- Filters -->
+    <section class="mb-6 sm:text-center">
+      <label class="ml-1 sm:ml-4 break-words">
+        <input type="radio" name="filter" value="all" checked> All
+      </label>
+      <label class="ml-1 sm:ml-4">
+        <input type="radio" name="filter" value="income"> Income
+      </label>
+      <label class="ml-1 sm:ml-4">
+        <input type="radio" name="filter" value="expense"> Expenses
+      </label>
+    </section>
+
+    <!-- Transaction Table -->
+    <div class="mt-4">
+      <h3 class="font-bold text-lg mb-4 text-gray-800">Transactions</h3>
+      <table class="min-w-full border border-gray-200 mx-auto bg-white rounded-lg shadow-md">
+          <thead>
+              <tr>
+                  <th class="px-1 sm:px-4 text-sm sm:text-base py-2 border border-gray-200  bg-gradient-to-r from-indigo-500 to-purple-500 text-white">Description</th>
+                  <th class="px-1 sm:px-4 text-sm border border-gray-200  bg-gradient-to-r from-indigo-500 to-purple-500 text-white">Amount</th>
+                  <th class="px-1 sm:px-4 text-sm border border-gray-200  bg-gradient-to-r from-indigo-500 to-purple-500 text-white">Actions</th>
+              </tr>
+          </thead>
+          <tbody id="transactionListE1" class="bg-white">
+              <!-- Transactions will be inserted here -->
+          </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
